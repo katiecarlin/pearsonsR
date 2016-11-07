@@ -1,0 +1,98 @@
+Write a function that calculates the median of a list (i.e., vector) of numbers.
+
+Write a function that takes two vectors of numbers and outputs a value for Pearson’s *r.
+> subject = c(1, 2, 3, 4, 5, 6)
+> age = c(43, 21, 25, 42, 57, 59)
+> glucose = c(99, 65, 79, 75, 87, 81)
+> prdf = data.frame(subject, age, glucose)
+> head(prdf)
+  subject age glucose
+1       1  43      99
+2       2  21      65
+3       3  25      79
+4       4  42      75
+5       5  57      87
+6       6  59      81
+str(prdf)
+'data.frame':	6 obs. of  3 variables:
+ $ subject: num  1 2 3 4 5 6
+ $ age    : num  43 21 25 42 57 59
+ $ glucose: num  99 65 79 75 87 81
+Ex <- sum(age)
+Ey <- sum(glucose)
+x <- c(43, 21, 25, 42, 57, 59)
+y <- c(99, 65, 79, 75, 87, 81)
+xy <- x*y
+Exy <- sum(xy)
+x^2
+[1] 1849  441  625 1764 3249 3481
+sum(x^2)
+[1] 11409
+Ex2 <- sum(x^2)
+Ex2
+[1] 11409
+Ey2 <-sum(x^2)
+Ey2
+[1] 11409
+Ey2 <-sum(y^2)
+Ey2
+[1] 40022
+n <- length(subject)
+n
+[1] 6
+r <- (n*(Exy) - (Ex)*(Ey))/sqrt((n*Ex2 - (Ex)^2)*(n*Ey2 - (Ey)^2))
+[1] 0.5298089
+
+Write a script that:
+Computes and prints the median of the data (temp_data.npy) in each of the two columns.
+temp_data = load("temp_data.Rdata")
+df = as.data.frame(mat)
+median(df$V1)
+[1] 14.44839
+medianV1 <- median(df$V1)
+print(medianV1)
+[1] 14.44839
+medianV2 <- median(df$V2)
+print(medianV2)
+[1] 75.33316
+
+
+Displays a histogram (of any kind) of the data in each of the two columns.
+> hist(df$V1)
+> hist(df$V2)
+> hist(df$V1, 25)
+> hist(df$V2, 25)
+
+Computes and prints Pearson’s r for the two columns of data
+df = as.data.frame(mat)
+x <- df$V1
+y <- df$V2
+Ex <-sum(df$V1)
+Ex
+[1] 1466.663
+Ey <-sum(df$V2)
+Ey
+[1] 7862.887
+xy <- x*y
+Exy <- sum(xy)
+Exy
+[1] 126683.2
+x^2
+sum(x^2)
+[1] 42553.06
+Ex2 <- sum(x^2)
+Ex2
+42553.06
+Ey2 <- sum(y^2)
+Ey2
+[1] 626730
+n <- length(x)
+n
+[1] 100
+r <- (n*(Exy) - (Ex)*(Ey))/sqrt((n*Ex2 - (Ex)^2)*(n*Ey2 - (Ey)^2))
+
+Displays a scatterplot of this data
+plot(df$V1, df$V2)
+
+
+
